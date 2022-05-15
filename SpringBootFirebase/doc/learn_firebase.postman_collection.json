@@ -1,0 +1,110 @@
+{
+	"info": {
+		"_postman_id": "73d2bcd8-47d9-4391-a3d4-2d6c294cfdb5",
+		"name": "learn_firebase",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create CRUD",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"document_id\" : null,\r\n    \"name\": \"Lele AA\",\r\n    \"profession\": \"Tempur\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{api-domain}}/create",
+					"host": [
+						"{{api-domain}}"
+					],
+					"path": [
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Data",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{api-domain}}/get?document_id=Lele",
+					"host": [
+						"{{api-domain}}"
+					],
+					"path": [
+						"get"
+					],
+					"query": [
+						{
+							"key": "document_id",
+							"value": "Lele"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"document_id\" : \"Lele AA\",\r\n    \"name\": \"Lele AA\",\r\n    \"profession\": \"Tempur Ngga ya\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{api-domain}}/update",
+					"host": [
+						"{{api-domain}}"
+					],
+					"path": [
+						"update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"document_id\" : \"Lele AA\",\r\n    \"name\": \"Lele AA\",\r\n    \"profession\": \"Tempur Ngga ya\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{api-domain}}/delete",
+					"host": [
+						"{{api-domain}}"
+					],
+					"path": [
+						"delete"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
