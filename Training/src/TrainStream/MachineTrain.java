@@ -5,6 +5,7 @@ import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 public class MachineTrain {
 	public static void main(String[] args) {
@@ -23,6 +24,13 @@ public class MachineTrain {
 		System.out.println(
 				"Total item that greater than 6 is : " + 
 				list.stream().filter(number -> number > 6).count());
+		
+		/***
+		 * capitalize the item
+		 */
+		String[] strArr = { "abcd", "bcdd", "defde", "fTr" };
+		List<String> capList = Arrays.stream(strArr).map(String::toUpperCase).collect(Collectors.toList());
+		System.out.println(capList);
 	}
 	
 	public static Person findMaxWage(List<Person> persons) {
