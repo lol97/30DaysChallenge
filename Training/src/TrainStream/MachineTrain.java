@@ -1,6 +1,8 @@
 package TrainStream;
 
-import java.util.ArrayList;import java.util.Comparator;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
 
@@ -13,6 +15,14 @@ public class MachineTrain {
 		personList.add(new Person("Rony", 17000000L, 23, Sex.MALE, "New York"));
 		
 		System.out.println(findMaxWage(personList).toString());
+		
+		/***
+		 * Case four ： Calculation Integer Greater than in a set 6 The number of elements of
+		 */
+		List<Integer> list = Arrays.asList(7, 6, 4, 8, 2, 11, 9);
+		System.out.println(
+				"Total item that greater than 6 is : " + 
+				list.stream().filter(number -> number > 6).count());
 	}
 	
 	public static Person findMaxWage(List<Person> persons) {
@@ -22,5 +32,6 @@ public class MachineTrain {
 		else
 			return null;
 	}
+	
 	
 }
