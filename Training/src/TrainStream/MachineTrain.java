@@ -31,6 +31,12 @@ public class MachineTrain {
 		String[] strArr = { "abcd", "bcdd", "defde", "fTr" };
 		List<String> capList = Arrays.stream(strArr).map(String::toUpperCase).collect(Collectors.toList());
 		System.out.println(capList);
+		
+		/***
+		 * add each item + 3
+		 */
+		List<Integer> newList = list.stream().map(x -> x+3).collect(Collectors.toList());
+		System.out.println("Every element + 3 : " + newList);
 	}
 	
 	public static Person findMaxWage(List<Person> persons) {
