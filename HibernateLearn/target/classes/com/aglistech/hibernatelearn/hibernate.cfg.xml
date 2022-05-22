@@ -19,6 +19,9 @@
         <!-- Echo the SQL to stdout -->
         <property name="show_sql">true</property>
         
+        <!-- auto drop and create when init -->
+        <property name="hibernate.hbm2ddl.auto">create</property>
+        
 		<!-- Set the current session context -->
 		<property name="current_session_context_class">thread</property>
     </session-factory>

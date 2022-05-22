@@ -1,6 +1,8 @@
 package com.aglistech.hibernatelearn.student;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import javax.persistence.CollectionTable;
@@ -11,6 +13,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.OrderColumn;
 import javax.persistence.Table;
 
 @Entity
@@ -33,6 +36,14 @@ public class Student {
 	@CollectionTable(name = "image", joinColumns = @JoinColumn(name = "student_id"))
 	@Column(name = "file_name")
 	private Set<String> images = new HashSet<String>();
+	
+	@ElementCollection
+	@CollectionTable(name = "exam", joinColumns = @JoinColumn(name = "student_id"))
+	@OrderColumn(name = "seq")
+	@Column(name = "exam_name")
+	private List<String> exams = new ArrayList<String>();
+	
+	
 
 	public Student(String firstName, String lasttName, String email) {
 		this.firstName = firstName;
@@ -78,6 +89,14 @@ public class Student {
 
 	public void setImages(Set<String> images) {
 		this.images = images;
+	}
+
+	public List<String> getExams() {
+		return exams;
+	}
+
+	public void setExams(List<String> exams) {
+		this.exams = exams;
 	}
 
 	@Override
