@@ -15,14 +15,30 @@ public class MachineTrain {
 		personList.add(new Person("Lia", 8000000L, 19, Sex.FEMALE, "Johanesbroug"));
 		personList.add(new Person("Rony", 17000000L, 23, Sex.MALE, "New York"));
 		/***
+		 * without change personList, increase all person salary + 10000
+		 */
+		List<Person> newPersonList = personList.stream().map(person -> {
+			Person newPerson = new Person(
+					person.getName(),
+					person.getWage() + 10000L,
+					person.getAge(),
+					person.getSex(),
+					person.getCity()
+					);
+			return newPerson;
+		}).collect(Collectors.toList());
+		System.out.println(personList);
+		System.out.println(newPersonList);
+
+		/***
 		 * increase all person salary + 10000
 		 */
-		List<Person> newListWage = personList.stream().peek(person -> {
-			person.setWage(person.getWage() + 10000L);
-		}).collect(Collectors.toList());
-		System.out.println(newListWage);
-		System.out.println(personList);
-		
+//		List<Person> newListWage = personList.stream().peek(person -> {
+//			person.setWage(person.getWage() + 10000L);
+//		}).collect(Collectors.toList());
+//		System.out.println(newListWage);
+//		System.out.println(personList);
+
 		System.out.println(findMaxWage(personList).toString());
 
 		/***
