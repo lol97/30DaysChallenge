@@ -21,12 +21,12 @@ public class CreateStudentWithExam {
 		try {
 			// create object
 			Student tempStudent = new Student("Roby", "Permana", "permana@mail.com");
-			List<String> tempExams = new ArrayList<String>();
-			tempExams.add("Bio1_sem1");
-			tempExams.add("Bio2_sem1");
-			tempExams.add("Bio3_sem1");
-			tempExams.add("Bio4_sem1");
-			tempExams.add("Bio1_sem1");
+			List<Exam> tempExams = new ArrayList<Exam>();
+			tempExams.add(new Exam("Bio1_sem1", 10));
+			tempExams.add(new Exam("Bio2_sem1", 40));
+			tempExams.add(new Exam("Bio3_sem1", 90));
+			tempExams.add(new Exam("Bio4_sem1", 90));
+			tempExams.add(new Exam("Bio1_sem1", 20));
 			tempStudent.setExams(tempExams);
 
 			// begin transaction

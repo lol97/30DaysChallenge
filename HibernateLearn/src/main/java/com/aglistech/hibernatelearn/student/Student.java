@@ -16,6 +16,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OrderColumn;
 import javax.persistence.Table;
 
+import org.hibernate.criterion.Example;
+
 @Entity
 @Table(name = "student")
 public class Student {
@@ -40,8 +42,7 @@ public class Student {
 	@ElementCollection
 	@CollectionTable(name = "exam", joinColumns = @JoinColumn(name = "student_id"))
 	@OrderColumn(name = "seq")
-	@Column(name = "exam_name")
-	private List<String> exams = new ArrayList<String>();
+	private List<Exam> exams = new ArrayList<Exam>();
 	
 	
 
@@ -91,11 +92,11 @@ public class Student {
 		this.images = images;
 	}
 
-	public List<String> getExams() {
+	public List<Exam> getExams() {
 		return exams;
 	}
 
-	public void setExams(List<String> exams) {
+	public void setExams(List<Exam> exams) {
 		this.exams = exams;
 	}
 
