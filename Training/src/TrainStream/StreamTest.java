@@ -31,5 +31,14 @@ public class StreamTest {
 		Integer sum3 = list.stream().reduce(0, Integer::sum);
 		System.out.println("list Sum up ：" + sum1.get() + "," + sum2.get() + "," + sum3);
 		
+		//find product
+		Optional<Integer> prod1 = list.stream().reduce((x, y) -> x*y);
+		System.out.println("List product = " + prod1.get());
+		
+		//find max value
+		Optional<Integer> max1 = list.stream().reduce((x,y) -> x > y ? x : y);
+		Optional<Integer> max2 = list.stream().reduce(Integer::max);
+		Integer max3 = list.stream().reduce(1, Integer::max);
+		System.out.println("max value = " + max1.get() + ", " + max2.get() + ", " + max3);
 	}
 }
