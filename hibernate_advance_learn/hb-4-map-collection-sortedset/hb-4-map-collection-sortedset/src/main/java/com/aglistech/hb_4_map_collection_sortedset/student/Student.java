@@ -41,7 +41,7 @@ public class Student {
 
 	@ElementCollection
 	@CollectionTable(name = "image")
-	@OrderBy(clause = "file_name DESC" )
+	@OrderBy(clause = "file_name ASC" )
 	@Column(name = "file_name")
 	private Set<String> images = new LinkedHashSet<String>();
 	
