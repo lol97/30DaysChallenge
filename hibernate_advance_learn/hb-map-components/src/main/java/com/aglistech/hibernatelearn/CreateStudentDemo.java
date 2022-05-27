@@ -8,7 +8,7 @@ import org.hibernate.cfg.Configuration;
 import com.aglistech.hibernatelearn.student.Address;
 import com.aglistech.hibernatelearn.student.Student;
 
-public class CreateStudentImageMapDemo {
+public class CreateStudentDemo {
 	public static void main(String[] args) {
 		//Create factory
 		SessionFactory factory = new Configuration()
@@ -24,6 +24,9 @@ public class CreateStudentImageMapDemo {
 			Student tempStudent = new Student("Rio", "Bambanga", "rio@mail.com");
 			Address homeAddress = new Address("Jalan Cikoko", "Jakarta", "13543");
 			tempStudent.setHomeAddress(homeAddress);
+			
+			Address billAddress = new Address("Jalan Jagapura", "Cirebon", "45164");
+			tempStudent.setBilliAddress(billAddress);
 			
 			//begin transaction
 			session.beginTransaction();

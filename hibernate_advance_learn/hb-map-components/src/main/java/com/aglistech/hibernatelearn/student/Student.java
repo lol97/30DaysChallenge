@@ -1,5 +1,7 @@
 package com.aglistech.hibernatelearn.student;
 
+import javax.persistence.AttributeOverride;
+import javax.persistence.AttributeOverrides;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -32,6 +34,13 @@ public class Student {
 	private String email;
 	
 	private Address homeAddress;
+	
+	@AttributeOverrides({
+		@AttributeOverride(name = "city", column = @Column(name = "BILLING_CITY")),
+		@AttributeOverride(name = "street", column = @Column(name = "BILLING_STREET")),
+		@AttributeOverride(name = "zipcode", column = @Column(name = "BILLING_ZIPCODE"))
+	})
+	private Address billiAddress;
 
 	public Student(String firstName, String lasttName, String email) {
 		this.firstName = firstName;
