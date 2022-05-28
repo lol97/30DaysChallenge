@@ -11,15 +11,15 @@ class Day14Scope {
     
     public int computeDifference(){
         int length = this.elements.length;
-        int maxDif = -1;
+        int tempMax = -1;
+        int tempMin = 99999;
         for(int i=0; i<length; i++){
-            for(int j=i+1; j<length; j++){
-                int tempDif = this.elements[i] - this.elements[j];
-                tempDif = tempDif < 0 ? tempDif * -1 : tempDif;
-                maxDif = maxDif < tempDif ? tempDif : maxDif;
-            }
+            if(this.elements[i] > tempMax)
+                tempMax = this.elements[i];
+            if(this.elements[i] < tempMin)
+                tempMin = this.elements[i];
         }
-        this.maximumDifference = maxDif;
-        return maxDif;
+        this.maximumDifference = tempMax - tempMin;
+        return this.maximumDifference;
     }
 } // End of Difference class
