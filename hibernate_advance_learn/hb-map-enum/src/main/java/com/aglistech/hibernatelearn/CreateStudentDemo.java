@@ -22,11 +22,13 @@ public class CreateStudentDemo {
 		try {
 			//create object
 			Student tempStudent = new Student("Rio", "Bambanga", "rio@mail.com", Status.ACTIVE);
+			Student tempStudent2 = new Student("Bunga", "Permata", "bg@mail.com", Status.INACTIVE);
 			
 			//begin transaction
 			session.beginTransaction();
 			//save object
 			session.persist(tempStudent);
+			session.persist(tempStudent2);
 			System.out.println("Done!");
 			
 			//commit
