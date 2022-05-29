@@ -15,16 +15,19 @@ class Node {
 
 public class LinkedListCase {
 
-	public static Node insert(Node head, int data) {
-		// Complete this method
-		if (head == null)
-			return new Node(data);
-		else if (head.next == null)
-			head.next = new Node(data);
-		else
-			insert(head.next, data);
-		return head;
-	}
+	public static  Node insert(Node head,int data) {
+        //Complete this method
+       if (head == null) 
+            return new Node(data);
+        else{
+            Node start = head;
+            while(start.next != null){
+                start = start.next;
+            }
+            start.next = new Node(data);
+            return head;
+        }
+    }
 
 	public static void display(Node head) {
 		Node start = head;
