@@ -31,7 +31,10 @@ public class CreateUserStudentInstructorDemo {
 			//save object
 			session.persist(tempStudent);
 			session.persist(tempInstructor);
-			System.out.println("Done!");
+			System.out.println("Done Saving!");
+			
+			Instructor instructor = session.get(Instructor.class, 2);
+			System.out.println(instructor.getSalary());
 			
 			//commit
 			session.getTransaction().commit();
