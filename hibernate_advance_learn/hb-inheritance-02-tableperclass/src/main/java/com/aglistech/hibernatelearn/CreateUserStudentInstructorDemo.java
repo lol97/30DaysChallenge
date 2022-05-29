@@ -7,6 +7,7 @@ import org.hibernate.cfg.Configuration;
 
 import com.aglistech.hibernatelearn.user.Instructor;
 import com.aglistech.hibernatelearn.user.Student;
+import com.aglistech.hibernatelearn.user.User;
 
 
 public class CreateUserStudentInstructorDemo {
@@ -31,7 +32,9 @@ public class CreateUserStudentInstructorDemo {
 			//save object
 			session.persist(tempStudent);
 			session.persist(tempInstructor);
-			System.out.println("Done!");
+			System.out.println("Done Saving!");
+			
+			System.out.println(session.get(User.class, 1));
 			
 			//commit
 			session.getTransaction().commit();
