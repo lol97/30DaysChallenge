@@ -1,5 +1,6 @@
 package com.aglistech.hibernatelearn.user;
 
+import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 
 import lombok.Getter;
@@ -10,6 +11,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @NoArgsConstructor
+@DiscriminatorValue(value = "INSTRUCTOR")
 public class Instructor extends User{
 	private Double salary;
 
