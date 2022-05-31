@@ -2,6 +2,7 @@ package TrainStream;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 public class StatisticsStream {
@@ -34,6 +35,10 @@ public class StatisticsStream {
 		// get average wage
 		Double averageWage = listPerson.stream().collect(Collectors.averagingLong(Person::getWage));
 		System.out.printf("average wage was %.2f \n", averageWage);
+		
+		// max salary
+		Optional<Long> maxOpt = listPerson.stream().map(Person::getWage).collect(Collectors.maxBy(Long::compare));
+		System.out.printf("max wage was %d \n", maxOpt.get());
 	}
 	
 }
