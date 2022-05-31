@@ -2,6 +2,7 @@ package TrainStream;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.LongSummaryStatistics;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
@@ -39,6 +40,14 @@ public class StatisticsStream {
 		// max salary
 		Optional<Long> maxOpt = listPerson.stream().map(Person::getWage).collect(Collectors.maxBy(Long::compare));
 		System.out.printf("max wage was %d \n", maxOpt.get());
+		
+		// sum wage
+		Long totalWage = listPerson.stream().collect(Collectors.summingLong(Person::getWage));
+		System.out.printf("total wage was %d \n", totalWage);
+		
+		// summary statistics
+		LongSummaryStatistics wageStatistics = listPerson.stream().collect(Collectors.summarizingLong(Person::getWage));
+		System.out.println("summary wage was " + wageStatistics);
 	}
 	
 }
