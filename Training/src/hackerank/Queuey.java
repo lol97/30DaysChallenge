@@ -1,6 +1,7 @@
 package hackerank;
 
 import java.util.LinkedList;
+import java.util.Stack;
 
 public class Queuey {
 	LinkedList<Object> queue;
@@ -48,5 +49,12 @@ public class Queuey {
 		stringQueue.enqueue("There");
 		System.out.println("First Out : "+ stringQueue.dequeue());
 		System.out.println("Second Out : "+ stringQueue.dequeue());
+		
+		Stack<String> stringStack = new Stack<String>();
+		stringStack.push("There");
+		stringStack.push("Hi");
+		while(!stringStack.isEmpty()) {
+			System.out.print(stringStack.pop());
+		}
 	}
 }
