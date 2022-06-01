@@ -5,14 +5,19 @@
             <th>Last Name</th>
             <th>Email</th>
             <th>Sales Volume</th>
+            <th>Met Quota?</th>
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let salesPerson of salesPersonList">
+        <tr *ngFor="let salesPerson of salesPersonList" [ngClass]="{'highlight': salesPerson.salesVolume > 7000000}">
             <td>{{ salesPerson.firstName }}</td>
             <td>{{ salesPerson.lastName }}</td>
             <td>{{ salesPerson.email }}</td>
-            <td>{{ salesPerson.salesVolume }}</td>
+            <td>{{ salesPerson.salesVolume | currency:'IDR' }}</td>
+            <td>
+                <div *ngIf="salesPerson.salesVolume > 7000000; else myElseBlock">Yes</div>
+                <ng-template #myElseBlock>No</ng-template>
+            </td>
         </tr>
     </tbody>
 </table>

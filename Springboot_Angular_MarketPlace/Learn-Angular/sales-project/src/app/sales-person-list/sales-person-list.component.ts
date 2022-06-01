@@ -11,9 +11,9 @@ export class SalesPersonListComponent implements OnInit {
 
   // create an array of objects
   salesPersonList: SalesPerson[] = [
-    new SalesPerson("Ruby", "Permata", "ruby@aglis.com", 10000),
-    new SalesPerson("Ariawan", "", "awan@aglis.com", 20000),
-    new SalesPerson("Veny", "Siahaan", "veny@aglis.com", 1000)
+    new SalesPerson("Ruby", "Permata", "ruby@aglis.com", 10000000),
+    new SalesPerson("Ariawan", "", "awan@aglis.com", 20000000),
+    new SalesPerson("Veny", "Siahaan", "veny@aglis.com", 5000000)
   ];
 
   constructor() { }
