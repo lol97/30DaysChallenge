@@ -20,13 +20,17 @@ public class BSTCase {
 		if (root == null) {
 			return -1;
 		}
-		int rightDepth = getHeight(root.right);
-		int leftDepth = getHeight(root.left);
-		
-		System.out.println("current leftDepth " + leftDepth);
-		System.out.println("current rightDepth " + rightDepth);
+		int heightLeft = 0;
+	    int heightRight = 0;
 
-		return (leftDepth > rightDepth ? leftDepth : rightDepth) + 1;
+	    if (root.left != null) {
+	        heightLeft = getHeight(root.left) + 1;
+	    }
+	    if (root.right != null) {
+	        heightRight = getHeight(root.right) + 1;
+	    }
+
+	  return (heightLeft > heightRight ? heightLeft : heightRight);
 	}
 
 	public static Node2 insert(Node2 root, int data) {
