@@ -21,7 +21,7 @@ const routes: Routes = [
     ProductListComponent
   ],
   imports: [
-    RouterModule.forChild(routes),
+    RouterModule.forRoot(routes),
     BrowserModule,
     HttpClientModule
   ],
