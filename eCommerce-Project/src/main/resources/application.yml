@@ -12,3 +12,10 @@ spring:
   data:
     rest:
       base-path: /api
+  profiles:
+    active:
+    - dev
+      
+logging:
+  file:
+    name: 'D:\logs\springboot\eccomerce-service\app.log'
