@@ -89,6 +89,11 @@ export class ProductListComponent implements OnInit {
       );
   }
 
+  updatePageSize(thePageSize: number){
+    this.thePageSize = thePageSize;
+    this.thePageNumber = 1;
+    this.listProducts();
+  }
   // processResult() {
   //   data => {
   //     this.products = data._embedded.products;
