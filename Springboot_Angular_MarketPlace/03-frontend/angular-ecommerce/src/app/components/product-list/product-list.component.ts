@@ -108,13 +108,9 @@ export class ProductListComponent implements OnInit {
     this.thePageNumber = 1;
     this.listProducts();
   }
-  // processResult() {
-  //   data => {
-  //     this.products = data._embedded.products;
-  //     this.thePageNumber = data.page.number + 1;
-  //     this.thePageSize = data.page.size;
-  //     this.theTotalElements = data.page.totalElements;
-  //   };
-  // }
+  
+  addToCart(product: Product){
+    console.log(`Adding to cart: ${product.name}, ${product.unitPrice}`);
+  }
 
 }
