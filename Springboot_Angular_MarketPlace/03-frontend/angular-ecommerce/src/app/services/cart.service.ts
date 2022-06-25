@@ -22,13 +22,14 @@ export class CartService {
 
     if(this.cartItems.length > 0) {}    
       // find the item in cart based on item id
-      for(let tempCartItem of this.cartItems){
-        if(tempCartItem.id == theCartItem.id){
-          existingCartItem = tempCartItem;
-          break;
-        }
+      existingCartItem = this.cartItems.find(cartItem => cartItem.id === theCartItem.id)!;
+      // for(let tempCartItem of this.cartItems){
+      //   if(tempCartItem.id == theCartItem.id){
+      //     existingCartItem = tempCartItem;
+      //     break;
+      //   }
 
-      }
+      // }
       // check if we found it
       alreadyExistsInCart = (existingCartItem != undefined);
 
@@ -57,7 +58,7 @@ export class CartService {
     this.totalQuantity.next(totalQuantityValue);
 
     //log cart data just for debugging
-    this.logCartData(totalPriceValue, totalQuantityValue);
+    // this.logCartData(totalPriceValue, totalQuantityValue);
   }
   
   logCartData(totalPriceValue: number, totalQuantityValue: number) {
