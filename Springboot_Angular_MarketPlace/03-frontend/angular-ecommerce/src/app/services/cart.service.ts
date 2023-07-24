@@ -75,4 +75,30 @@ export class CartService {
     console.log(`total price : ${totalPriceValue.toFixed(2)}, totalQuantity: ${totalQuantityValue}`);
     console.log("---------------");
   }
+
+  decrementQuantity(cartItem: CartItem){
+    //decrease quantity
+    cartItem.quantity--;
+
+    if(cartItem.quantity === 0){
+      this.remove(cartItem);
+    }else {
+      this.computeCartTotal();
+    }
+  }
+
+  remove(cartItem: CartItem){
+    //get by index
+    const cartItemIndex = this
+                            .cartItems
+                            .findIndex(
+                              tempCartItem => tempCartItem.id == cartItem.id
+                            );
+
+    if (cartItemIndex > -1){
+      this.cartItems.splice(cartItemIndex, 1);
+    }
+
+    this.computeCartTotal();
+  }
 }
