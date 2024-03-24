@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { AglisShopFormService } from 'src/app/services/aglis-shop-form.service';
 
 @Component({
   selector: 'app-checkout',
@@ -12,8 +13,12 @@ export class CheckoutComponent implements OnInit {
 
   totalPrice: number = 0;
   totalQuantity: number = 0;
+  creditCardMoths: number[] = [];
+  creditCardYears: number[] = [];
 
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(  private formBuilder: FormBuilder,
+      private aglisShopFormService: AglisShopFormService
+    ) { }
 
   ngOnInit(): void {
     this.checkoutFormGroup = this.formBuilder.group({
@@ -45,6 +50,25 @@ export class CheckoutComponent implements OnInit {
         expirationYear: ['']
       })
     });
+
+    //populate credit card months
+    const startMonth: number = new Date().getMonth() + 1;
+    console.log("startMonth" + startMonth);
+
+    this.aglisShopFormService.getCreditCardMonths(startMonth).subscribe(
+      data => {
+        console.log("retrieve credit card months: " + JSON.stringify(data));
+        this.creditCardMoths = data;
+      }
+    );
+
+    //populate credit card years
+    this.aglisShopFormService.getCreditCardYears().subscribe(
+      data => {
+        console.log("retrieve credit card years: " + JSON.stringify(data));
+        this.creditCardYears = data;
+      }
+    );
   }
 
   copyShippingAddressToBillingAddress(event : any) {
