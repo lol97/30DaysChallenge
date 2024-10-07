@@ -10,7 +10,7 @@ public class DemoUtils {
 	private List<String> listNamaJalan = List.of("WAHIDIN", "WAHID", "JAKARTA");
 	
 	public int add(int a, int b) {
-		return a + b; //break on purpose
+		return a + b;
 	}
 	
 	public Object checkNull(Object obj) {
@@ -54,5 +54,22 @@ public class DemoUtils {
 
 	public void setListNamaJalan(List<String> listNamaJalan) {
 		this.listNamaJalan = listNamaJalan;
+	}
+	
+	public String throwEx(int a) throws Exception {
+		if (a < 0) {
+			throw new Exception("value should be greater than or equal to 0");
+		}
+		return "value is greater than or equal to 0";
+	}
+	
+	public void checkTimeout() throws InterruptedException {
+		System.out.println("I am going to sleep");
+		Thread.sleep(2000);
+		System.out.println("Sleeping over");
+	}
+	
+	public Integer multiply(int a, int b) {
+		return a*b;
 	}
 }

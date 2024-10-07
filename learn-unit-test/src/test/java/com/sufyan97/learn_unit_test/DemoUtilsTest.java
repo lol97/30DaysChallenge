@@ -1,6 +1,7 @@
 package com.sufyan97.learn_unit_test;
 
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertIterableEquals;
@@ -10,22 +11,30 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertNotSame;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertSame;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTimeout;
+import static org.junit.jupiter.api.Assertions.assertTimeoutPreemptively;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+import java.time.Duration;
 import java.util.List;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayNameGeneration;
+import org.junit.jupiter.api.MethodOrderer;
+import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestMethodOrder;
 
 @DisplayNameGeneration(ReplaceCamelCase.class)
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class DemoUtilsTest {
 	DemoUtils demoUtils;
 	
 	@BeforeEach
 	void setupBeforeEach() {
 		demoUtils = new DemoUtils();
-		System.out.println("@BeforeEach execute for each test");
+		//System.out.println("@BeforeEach execute for each test");
 	}
 	
 	/*
@@ -98,9 +107,29 @@ public class DemoUtilsTest {
 	}
 	
 	@Test
+	@Order(2)
 	void testLinesMatch() {
 		List<String> nameStreet = List.of("WAHIDIN", "WAHID", "JAKARTA"); 
 		
 		assertLinesMatch(nameStreet, demoUtils.getListNamaJalan(), "should be match");
+	}
+	
+	@Test
+	@Order(-10)
+	void testThrowsAndDoesNotThrow() {
+		assertThrows(Exception.class, () -> {demoUtils.throwEx(-1); }, "should throw exception");
+		
+		assertDoesNotThrow(() -> {demoUtils.throwEx(20); }, "should not throw");
+	}
+	
+	@Test
+	@Order(1)
+	void testTimeout() {
+		assertTimeoutPreemptively(Duration.ofSeconds(3), () -> { demoUtils.checkTimeout(); }, "method should execute in 3 second" );
+	}	
+	
+	@Test
+	void testMultiply() {
+		assertEquals(12, demoUtils.multiply(3, 4), "should return 12");
 	}
 }
