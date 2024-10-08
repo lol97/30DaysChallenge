@@ -1,4 +1,4 @@
-package com.sufyan97.learn_unit_test;
+package com.sufyan97.learn_unit_test.junitdemo;
 
 import java.lang.reflect.Method;
 

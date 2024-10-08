@@ -1,4 +1,4 @@
-package com.sufyan97.learn_unit_test;
+package com.sufyan97.learn_unit_test.junitdemo;
 
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
