@@ -6,6 +6,9 @@ import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayNameGeneration;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.condition.EnabledForJreRange;
+import org.junit.jupiter.api.condition.EnabledIfEnvironmentVariable;
+import org.junit.jupiter.api.condition.EnabledIfSystemProperties;
+import org.junit.jupiter.api.condition.EnabledIfSystemProperty;
 import org.junit.jupiter.api.condition.EnabledOnJre;
 import org.junit.jupiter.api.condition.EnabledOnOs;
 import org.junit.jupiter.api.condition.JRE;
@@ -65,6 +68,18 @@ class ConditionalTest {
 	@Test
 	@EnabledForJreRange(min = JRE.JAVA_11)
 	void testForJavaRangeMin11() {
+		
+	}
+	
+	@Test
+	@EnabledIfEnvironmentVariable(named = "LOL_ENV", matches = "DEV")
+	void testOnlyForDevEnv() {
+		
+	}
+	
+	@Test
+	@EnabledIfSystemProperty(named = "LOL_SYS_PROP", matches = "CI_CD_DEPLOY")
+	void testOnlyForCiCdSys() {
 		
 	}
 }
